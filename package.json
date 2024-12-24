@@ -26,12 +26,12 @@
     "image-downloader": "^4.0.0",
     "jquery": "^3.5.0",
     "moment": "^2.24.0",
-    "node-audiorecorder": "^1.4.2",
+    "node-audiorecorder": "^3.0.0",
     "node-schedule": "^2.0.0",
     "randomcolor": "^0.6.0",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.0.0",
-    "telegraf": "^3.35.0",
+    "telegraf": "^4.0.0",
     "velocity-animate": "^1.5.2",
     "winston": "^3.2.1"
   }
