@@ -28,7 +28,7 @@ With the [webRemote demo addon](https://github.com/gegu/TeleFrame-webRemote) the
     Example to switch an LED when new images arrive.
 - [Installing existing addons](#installing-existing-addons-from-github)
 
-- Wiki: [Available TeleFrame addons](https://github.com/LukeSkywalker92/TeleFrame/wiki/Available-TeleFrame-addons)
+- Wiki: [Available TeleFrame addons](https://github.com/DinginMastaa69/TeleFrame/wiki/Available-TeleFrame-addons)
 
 ## How does it work
 

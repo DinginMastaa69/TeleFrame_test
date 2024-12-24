@@ -3,9 +3,9 @@
 ![TeleFrame in action](.github/TeleFrame.gif)
 
 <p align="center">
-	<a><img src="https://img.shields.io/github/last-commit/LukeSkywalker92/TeleFrame.svg" alt="Latest Comit"></a>
-<a><img src="https://img.shields.io/github/release/LukeSkywalker92/TeleFrame.svg" alt="Release"></a>
-	<a href="https://david-dm.org/LukeSkywalker92/TeleFrame"><img src="https://david-dm.org/LukeSkywalker92/TeleFrame.svg" alt="david-dm"></a>
+	<a><img src="https://img.shields.io/github/last-commit/DinginMastaa69/TeleFrame.svg" alt="Latest Comit"></a>
+<a><img src="https://img.shields.io/github/release/DinginMastaa69/TeleFrame.svg" alt="Release"></a>
+	<a href="https://david-dm.org/DinginMastaa69/TeleFrame"><img src="https://david-dm.org/DinginMastaa69/TeleFrame.svg" alt="david-dm"></a>
 </p>
 
 **TeleFrame** is an open source digital image frame that displays images and videos, which were send to an Telegram Bot.
@@ -50,7 +50,7 @@ Note that you will need to install the lastest full version of Raspbian, **don't
 Execute the following command on your Raspberry Pi to install TeleFrame:
 
 ```bash
-bash -c "$(curl -sL https://raw.githubusercontent.com/LukeSkywalker92/TeleFrame/master/tools/install_raspberry.sh)"
+bash -c "$(curl -sL https://raw.githubusercontent.com/DinginMastaa69/TeleFrame/master/tools/install_raspberry.sh)"
 ```
 
 ### Manual Installation
@@ -58,7 +58,7 @@ bash -c "$(curl -sL https://raw.githubusercontent.com/LukeSkywalker92/TeleFrame/
 1. Download and install the latest *Node.js* version.
 2. If you like to use the voice reply feature you need to install sox
 3. Install *Electron* globally with `npm install -g electron`.
-4. Clone the repository and check out the master branch: `git clone https://github.com/LukeSkywalker92/TeleFrame.git`
+4. Clone the repository and check out the master branch: `git clone https://github.com/DinginMastaa69/TeleFrame.git`
 5. Enter the repository: `cd TeleFrame/`
 6. Install and run the app with: `npm install && npm start`
 
