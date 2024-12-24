@@ -194,7 +194,7 @@ fi
 # Use pm2 control like a service TeleFrame
 if [[ $pmchoice =~ ^[Yy]$ ]]; then
     sudo npm install -g pm2
-    sudo su -c "env PATH=$PATH:/usr/bin pm2 startup systemd -u pi --hp /home/pi"
+    sudo su -c "env PATH=$PATH:/usr/bin pm2 startup systemd -u frame --hp /home/frame"
 		if [[ $pmchoiceInternet =~ ^[Yy]$ ]]; then
     	pm2 start ~/TeleFrame/tools/pm2_TeleFrame_waitForInternet.json
 		else
