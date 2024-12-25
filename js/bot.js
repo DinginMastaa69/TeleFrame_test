@@ -1,6 +1,4 @@
-const Telegraf = require("telegraf");
-const Telegram = require("telegraf/telegram");
-const Extra = require('telegraf/extra')
+const { Telegraf, Telegram, Extra } = require('telegraf');
 const download = require("image-downloader");
 const moment = require("moment");
 const exec = require("child_process").exec;
@@ -34,13 +32,23 @@ var Bot = class {
     //Help message
     this.bot.help((ctx) => botReply(ctx, 'help'));
 
+    // Vor dem check
+    if (!config.whitelistChats || !Array.isArray(config.whitelistChats)) {
+      config.whitelistChats = []; // leeres Array als Fallback
+    }
 
     //Middleware Check for whitelisted  ChatID
     const isChatWhitelisted = (ctx, next) => {
+      // ctx.message kann undefined sein z. B. bei InlineQueries oder Callbacks
+      if (!ctx.message || !ctx.message.chat) {
+        return next();
+      }
+
+      // Jetzt erst checken
       if (
         (
           config.whitelistChats.length > 0 &&
-          config.whitelistChats.indexOf(ctx.message.chat.id) == -1
+          !config.whitelistChats.includes(ctx.message.chat.id)
         )
       ){
         this.logger.info(
@@ -58,11 +66,20 @@ var Bot = class {
       return next();
     }
 
+    // Vor dem check
+    if (!config.whitelistAdmins || !Array.isArray(config.whitelistAdmins)) {
+      config.whitelistAdmins = []; // leeres Array als Fallback
+    }
 
     //Middleware Check for whitelisted  ChatID
     const isAdminWhitelisted = (ctx, next) => {
+      if (!ctx.message || !ctx.message.chat) {
+        return next();
+      }
+
+      // Jetzt erst checken
       if (
-          config.whitelistAdmins.indexOf(ctx.message.chat.id) == -1
+        !config.whitelistAdmins.includes(ctx.message.chat.id)
       ){
         this.logger.info(
           "Admin-Whitelist triggered:",
@@ -81,17 +98,26 @@ var Bot = class {
 
     //Download incoming assets
     this.bot.on(['photo', 'video', 'document'], isChatWhitelisted, (ctx) => {
+      if (!ctx.message) {
+        return;
+      }
+      
       let fileId;
-      if (ctx.updateSubTypes.indexOf('photo') > -1) {
+      if (ctx.message.photo) {
         fileId = ctx.message.photo[ctx.message.photo.length - 1].file_id;
-      } else if (ctx.updateSubTypes.indexOf('video') > -1) {
-        fileId = ctx.message.video.file_id
-      } else if (ctx.updateSubTypes.indexOf('document') > -1) {
+      } else if (ctx.message.video) {
+        fileId = ctx.message.video.file_id;
+      } else if (ctx.message.document) {
         fileId = ctx.message.document.file_id;
+      } else {
+        // Irgendwas stimmt nicht, wir haben weder photo noch video noch document
+        return;
       }
 
 
       this.telegram.getFileLink(fileId).then((link) => {
+        link = link.toString(); // macht aus URL-Objekt einen String
+
         // check for supported file types
         if (link.match(/\.(mp4|jpg|gif|png)$/) === null) {
           if (config.botReply) {
