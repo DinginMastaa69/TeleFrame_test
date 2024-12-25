@@ -1,7 +1,7 @@
 {
   "apps": [{
     "name": "TeleFrame-BO",
-    "script": "/home/pi/TeleFrame/tools/tf_bo.sh",
-    "watch": ["/home/pi/TeleFrame/config/config.json"]
+    "script": "/home/frame/TeleFrame/tools/tf_bo.sh",
+    "watch": ["/home/frame/TeleFrame/config/config.json"]
   }]
 }
