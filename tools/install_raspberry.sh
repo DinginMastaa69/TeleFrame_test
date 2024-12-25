@@ -135,13 +135,13 @@ else
 	exit;
 fi
 
-echo -e "\e[96mInstalling electron globally ...\e[90m"
-if sudo npm install --arch=$ARM -g electron --unsafe-perm=true --allow-root; then
-	echo -e "\e[92mElectron installation Done!\e[0m"
-else
-	echo -e "\e[91mUnable to install electron!"
-	exit;
-fi
+# echo -e "\e[96mInstalling electron globally ...\e[90m"
+# if sudo npm install --arch=$ARM -g electron --unsafe-perm=true --allow-root; then
+# 	echo -e "\e[92mElectron installation Done!\e[0m"
+# else
+# 	echo -e "\e[91mUnable to install electron!"
+# 	exit;
+# fi
 
 # Create config for start TeleFrame containing the token
 echo -e "{\n  \"botToken\": \"$token\"\n}" > config/config.json
