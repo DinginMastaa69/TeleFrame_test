@@ -67,8 +67,7 @@ config/config.js*
 config/config.backup.*
 config/texts.js
 
-images/*
-!images/.gitkeep
+images/
 
 addons/*
 !addons/.gitkeep
@@ -80,3 +79,5 @@ audiofiles/*
 !audiofiles/.gitkeep
 
 *.DS_Store
+
+package-lock.json
